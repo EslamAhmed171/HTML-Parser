@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Example</title>
+</head>
+<body>
+    <h1>User Data Table</h1>
+    
+    <div class="table-controls">
+        <div class="search">
+            <label for="search-input">Search:</label>
+            <input type="text" id="search-input" placeholder="Search users...">
+        </div>
+        
+        <div class="pagination">
+            <button id="prev-page" disabled>Previous</button>
+            <span class="page-info">Page <span id="current-page">1</span> of <span id="total-pages">5</span></span>
+            <button id="next-page">Next</button>
+        </div>
+    </div>
+    
+    <table id="users-table" class="data-table">
+        <thead>
+            <tr>
+                <th class="sortable" data-sort="id">ID <span class="sort-icon">↑</span></th>
+                <th class="sortable" data-sort="name">Name</th>
+                <th class="sortable" data-sort="email">Email</th>
+                <th class="sortable" data-sort="role">Role</th>
+                <th class="sortable" data-sort="status">Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-id="1">
+                <td>001</td>
+                <td>John Smith</td>
+                <td>john.smith@example.com</td>
+                <td>Administrator</td>
+                <td><span class="status active">Active</span></td>
+                <td>
+                    <button class="btn-edit" data-id="1">Edit</button>
+                    <button class="btn-delete" data-id="1">Delete</button>
+                </td>
+            </tr>
+            <tr data-id="2">
+                <td>002</td>
+                <td>Jane Doe</td>
+                <td>jane.doe@example.com</td>
+                <td>Editor</td>
+                <td><span class="status active">Active</span></td>
+                <td>
+                    <button class="btn-edit" data-id="2">Edit</button>
+                    <button class="btn-delete" data-id="2">Delete</button>
+                </td>
+            </tr>
+            <tr data-id="3">
+                <td>003</td>
+                <td>Bob Johnson</td>
+                <td>bob.johnson@example.com</td>
+                <td>Viewer</td>
+                <td><span class="status inactive">Inactive</span></td>
+                <td>
+                    <button class="btn-edit" data-id="3">Edit</button>
+                    <button class="btn-delete" data-id="3">Delete</button>
+                </td>
+            </tr>
+            <tr data-id="4">
+                <td>004</td>
+                <td>Alice Williams</td>
+                <td>alice.williams@example.com</td>
+                <td>Editor</td>
+                <td><span class="status active">Active</span></td>
+                <td>
+                    <button class="btn-edit" data-id="4">Edit</button>
+                    <button class="btn-delete" data-id="4">Delete</button>
+                </td>
+            </tr>
+            <tr data-id="5">
+                <td>005</td>
+                <td>Charlie Brown</td>
+                <td>charlie.brown@example.com</td>
+                <td>Viewer</td>
+                <td><span class="status pending">Pending</span></td>
+                <td>
+                    <button class="btn-edit" data-id="5">Edit</button>
+                    <button class="btn-delete" data-id="5">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <h2>Edit User</h2>
+            <form id="edit-user-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label for="edit-name">Name:</label>
+                    <input type="text" id="edit-name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-email">Email:</label>
+                    <input type="email" id="edit-email">
+                </div>
+                <div class="form-group">
+                    <label for="edit-role">Role:</label>
+                    <select id="edit-role">
+                        <option value="Administrator">Administrator</option>
+                        <option value="Editor">Editor</option>
+                        <option value="Viewer">Viewer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-status">Status:</label>
+                    <select id="edit-status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Save</button>
+                    <button type="button" class="cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
